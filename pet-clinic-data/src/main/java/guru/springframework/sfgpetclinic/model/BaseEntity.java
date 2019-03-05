@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class BaseEntity implements Serializable {
 
+    //Serializable only identifies serializable semantics
+
     private Long id; //use box types; they can be null
 
     public Long getId() {
