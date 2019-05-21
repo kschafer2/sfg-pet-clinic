@@ -38,6 +38,6 @@ public class Visit extends BaseEntity {
     }
 
     public void setPet(guru.springframework.sfgpetclinic.model.Pet pet) {
-        pet = pet;
+        this.pet = pet;
     }
 }
