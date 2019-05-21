@@ -1,12 +1,21 @@
 package guru.springframework.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "visits")
 public class Visit extends BaseEntity {
 
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "description")
     private String description;
-    private Pet Pet;
+
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
 
     public LocalDate getDate() {
         return date;
@@ -25,10 +34,10 @@ public class Visit extends BaseEntity {
     }
 
     public guru.springframework.sfgpetclinic.model.Pet getPet() {
-        return Pet;
+        return pet;
     }
 
     public void setPet(guru.springframework.sfgpetclinic.model.Pet pet) {
-        Pet = pet;
+        pet = pet;
     }
 }
