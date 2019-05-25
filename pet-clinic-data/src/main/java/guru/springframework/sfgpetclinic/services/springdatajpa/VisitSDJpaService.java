@@ -1,8 +1,6 @@
 package guru.springframework.sfgpetclinic.services.springdatajpa;
 
 import guru.springframework.sfgpetclinic.model.Visit;
-import guru.springframework.sfgpetclinic.repositories.PetRepository;
-import guru.springframework.sfgpetclinic.repositories.PetTypeRepository;
 import guru.springframework.sfgpetclinic.repositories.VisitRepository;
 import guru.springframework.sfgpetclinic.services.VisitService;
 import org.springframework.context.annotation.Profile;
@@ -16,14 +14,9 @@ import java.util.Set;
 public class VisitSDJpaService implements VisitService {
 
     private final VisitRepository visitRepository;
-    private final PetRepository petTypeService;
-    private final PetTypeRepository petRepository;
 
-    public VisitSDJpaService(VisitRepository visitRepository, PetRepository petTypeService,
-                             PetTypeRepository petRepository) {
+    public VisitSDJpaService(VisitRepository visitRepository) {
         this.visitRepository = visitRepository;
-        this.petTypeService = petTypeService;
-        this.petRepository = petRepository;
     }
 
     @Override
