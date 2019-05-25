@@ -34,13 +34,13 @@ public class SpecialtySDJpaService implements SpecialtyService {
     }
 
     @Override
-    public Specialty save(Specialty object) {
-        return specialtyRepository.save(object);
+    public Specialty save(Specialty specialty) {
+        return specialtyRepository.save(specialty);
     }
 
     @Override
-    public void delete(Specialty object) {
-        specialtyRepository.delete(object);
+    public void delete(Specialty specialty) {
+        specialtyRepository.delete(specialty);
     }
 
     @Override

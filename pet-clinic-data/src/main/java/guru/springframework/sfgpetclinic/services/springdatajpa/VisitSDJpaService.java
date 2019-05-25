@@ -41,13 +41,13 @@ public class VisitSDJpaService implements VisitService {
     }
 
     @Override
-    public Visit save(Visit object) {
-        return visitRepository.save(object);
+    public Visit save(Visit visit) {
+        return visitRepository.save(visit);
     }
 
     @Override
-    public void delete(Visit object) {
-        visitRepository.delete(object);
+    public void delete(Visit visit) {
+        visitRepository.delete(visit);
     }
 
     @Override
