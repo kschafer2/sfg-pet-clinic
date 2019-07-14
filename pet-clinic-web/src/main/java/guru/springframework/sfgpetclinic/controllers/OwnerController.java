@@ -16,11 +16,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/owners")
-public class OwnersController {
+public class OwnerController {
 
     private final OwnerService ownerService;
 
-    public OwnersController(OwnerService ownerService) {
+    public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
     }
 
@@ -43,7 +43,7 @@ public class OwnersController {
         }
 
         //find owners by last name
-        List<Owner> results = ownerService.findAllByLastNameLike(owner.getLastName());
+        List<Owner> results = ownerService.findAllByLastNameLike("%" + owner.getLastName() + "%");
 
         if(results.isEmpty()) {
             //no owners found
