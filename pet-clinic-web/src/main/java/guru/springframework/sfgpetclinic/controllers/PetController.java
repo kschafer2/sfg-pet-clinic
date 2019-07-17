@@ -70,6 +70,7 @@ public class PetController {
         }
 
         owner.getPets().add(pet);
+        pet.setOwner(owner);
 
         if(result.hasErrors()) {
             model.put("pet", pet);
