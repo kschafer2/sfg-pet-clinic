@@ -36,7 +36,7 @@ public class OwnerController {
     }
 
     @GetMapping
-    public String processFindForm(Owner owner, BindingResult result, Model model) {
+    public String processFindOwnersForm(Owner owner, BindingResult result, Model model) {
         //allow parameterless GET request for /owners to return all records
         if(owner.getLastName() == null) {
             owner.setLastName(""); //empty string signifies broadest possible search
@@ -76,14 +76,14 @@ public class OwnerController {
     }
 
     @GetMapping("/new")
-    public String initCreationForm(Model model) {
+    public String initOwnerCreationForm(Model model) {
         model.addAttribute("owner", Owner.builder().build());
 
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
     }
 
     @PostMapping("/new")
-    public String processCreationForm(@Valid Owner owner, BindingResult result) {
+    public String processOwnerCreationForm(@Valid Owner owner, BindingResult result) {
         if(result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 
@@ -104,7 +104,9 @@ public class OwnerController {
     @PostMapping("/{ownerId}/edit")
     public String processUpdateOwnerForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
         if(result.hasErrors()) {
+
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+
         } else {
             owner.setId(ownerId);
             Owner savedOwner = ownerService.save(owner);
